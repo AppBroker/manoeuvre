@@ -27,7 +27,9 @@
 		"revenue",
 		"revshare"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"path": "^0.12.7"
+	},
 	"devDependencies": {
 		"ava": "^2.4.0",
 		"webpack": "^4.44.1",

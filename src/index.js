@@ -1,5 +1,4 @@
 'use strict';
-import get from 'lodash/get';
 
 module.exports = (input, {postfix = 'rainbows'} = {}) => {
 	if (typeof input !== 'string') {
