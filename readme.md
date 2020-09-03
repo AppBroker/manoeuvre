@@ -24,28 +24,28 @@ There's also a [Yeoman generator](https://github.com/sindresorhus/generator-nm).
 
 ---
 
-# unicorn-fun [![Build Status](https://travis-ci.com/YOUR-GITHUB-USERNAME/unicorn-fun.svg?branch=master)](https://travis-ci.com/github/YOUR-GITHUB-USERNAME/unicorn-fun)
+# unicorn-fun [![Build Status](https://travis-ci.com/AppBroker/manoeuvre.svg?branch=master)](https://travis-ci.com/github/AppBroker/manoeuvre)
 
 > My awesome module
 
 ## Install
 
 ```
-$ npm install unicorn-fun
+$ npm install manoeuvre
 ```
 
 ## Usage
 
 ```js
-const unicornFun = require('unicorn-fun');
+const manoeuvre = require('manoeuvre');
 
-unicornFun('unicorns');
+manoeuvre('unicorns');
 //=> 'unicorns & rainbows'
 ```
 
 ## API
 
-### unicornFun(input, options?)
+### manoeuvre(input, options?)
 
 #### input
 
