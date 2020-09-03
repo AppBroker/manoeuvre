@@ -1,6 +1,6 @@
-# node-module-boilerplate
+# manoeuvre
 
-> Boilerplate to kickstart creating a Node.js module
+> Simple Node wrapper for Manoeuvre's v1 API - Affiliate Tracking for Mobile Apps
 
 This is what I use for [my own modules](https://www.npmjs.com/~sindresorhus).
 
