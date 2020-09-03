@@ -1,6 +1,6 @@
 {
 	"name": "manoeuvre",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Simple Node wrapper for Manoeuvre's v1 API",
 	"license": "MIT",
 	"repository": "AppBroker/manoeuvre",
