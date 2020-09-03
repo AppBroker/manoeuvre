@@ -45,6 +45,24 @@ manoeuvre('unicorns');
 
 ## API
 
+### API with Token
+
+You will want to use OAuth `access_token`s on behalf of specific users once
+your app is in production. Using an `access_token` specific to a validated user
+allows for detailed athlete information, as well as the option for additional
+`PUT`/`POST`/`DELETE` privileges.
+
+Use app-specific logic to retrieve the `access\_token` for a particular user, then create a Manoeuvre client for that user, with their token:
+
+```js
+import manouevre from 'manoeuvre';
+
+// ... get access_token from somewhere
+manoeuvreClient = new manouevre.clientConfig(access_token);
+
+const payload = await manoeuvreClient.api.add({...args})
+```
+
 ### manoeuvre(input, options?)
 
 #### input
