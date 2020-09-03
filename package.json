@@ -1,9 +1,10 @@
 {
 	"name": "manoeuvre",
 	"version": "0.0.2",
-	"description": "Affiliate tracking for apps",
+	"description": "Simple Node wrapper for Manoeuvre's v1 API",
 	"license": "MIT",
 	"repository": "AppBroker/manoeuvre",
+	"main": "./dist/index.js",
 	"author": {
 		"name": "Ryan McLaughlin",
 		"email": "rmclaughlin@appbroker.biz",
@@ -14,7 +15,7 @@
 	},
 	"scripts": {
 		"test": "xo && ava",
-		"release": "git add -A && git commit -m 'Version bump' && git push && npm version patch && git add -A && git commit -m 'Version bump' && git push"
+		"build": "webpack"
 	},
 	"files": [
 		"index.js"
@@ -29,6 +30,8 @@
 	"dependencies": {},
 	"devDependencies": {
 		"ava": "^2.4.0",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12",
 		"xo": "^0.33.0"
 	}
 }
