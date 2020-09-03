@@ -24,7 +24,7 @@ There's also a [Yeoman generator](https://github.com/sindresorhus/generator-nm).
 
 ---
 
-# unicorn-fun [![Build Status](https://travis-ci.com/AppBroker/manoeuvre.svg?branch=master)](https://travis-ci.com/github/AppBroker/manoeuvre)
+# manoeuvre [![Build Status](https://travis-ci.com/AppBroker/manoeuvre.svg?branch=master)](https://travis-ci.com/github/AppBroker/manoeuvre)
 
 > My awesome module
 
