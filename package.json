@@ -13,7 +13,8 @@
 		"node": ">=10"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"test": "xo && ava",
+		"release": "git add -A && git commit -m 'Version bump' && git push && npm version patch && git add -A && git commit -m 'Version bump' && git push"
 	},
 	"files": [
 		"index.js"
