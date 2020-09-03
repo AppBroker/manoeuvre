@@ -40,7 +40,7 @@ const fetchConfig = (config) => {
   }
 };
 
-module.exports = {
+const authenticator = {
   fetchConfig,
   getToken() {
     if (!token) {
@@ -92,3 +92,5 @@ module.exports = {
     redirectUri = undefined;
   },
 };
+
+export default authenticator;

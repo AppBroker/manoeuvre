@@ -112,5 +112,4 @@ oauth.refreshToken = (refreshToken) => {
   };
   return request(options);
 };
-
-module.exports = oauth;
+export default oauth;
