@@ -29,7 +29,8 @@ manoeuvre.clientConfig = (token, req) => {
   });
 
   const httpClient = new HttpClient(this.request);
-  const api = new Api(httpClient);
+  this.api = new Api(httpClient);
+  this.rateLimiting = rateLimiting;
 
   manoeuvre.config = authenticator.fetchConfig;
   manoeuvre.oauth = oauth;
@@ -39,7 +40,7 @@ manoeuvre.clientConfig = (token, req) => {
       Authorization: `Bearer ${authenticator.getToken()}`,
     },
   }));
-  manoeuvre.api = api;
+  manoeuvre.api = new Api(manoeuvre.defaultHttpClient);
   manoeuvre.rateLimiting = rateLimiting;
 };
 

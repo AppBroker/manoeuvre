@@ -187,4 +187,4 @@ HttpClient.prototype.requestHelper = (options = {}, done) => {
 
 //= ==== helpers =====
 
-export default HttpClient;
+module.exports = HttpClient;
