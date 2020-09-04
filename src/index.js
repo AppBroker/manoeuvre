@@ -17,32 +17,30 @@ manoeuvre.defaultRequest = request.defaults({
   json: true,
 });
 
-manoeuvre.clientConfig = (token, req) => {
-  this.access_token = token;
+this.access_token = '12345';
 
-  this.request = req || manoeuvre.defaultRequest;
+this.request = manoeuvre.defaultRequest;
 
-  this.request = this.request.defaults({
-    headers: {
-      Authorization: `Bearer ${this.access_token}`,
-    },
-  });
+this.request = this.request.defaults({
+  headers: {
+    Authorization: `Bearer ${this.access_token}`,
+  },
+});
 
-  const httpClient = new HttpClient(this.request);
-  this.api = new Api(httpClient);
-  this.rateLimiting = rateLimiting;
+const httpClient = new HttpClient(this.request);
+this.api = new Api(httpClient);
+this.rateLimiting = rateLimiting;
 
-  manoeuvre.config = authenticator.fetchConfig;
-  manoeuvre.oauth = oauth;
-  // The original behavior was to use global configuration.
-  manoeuvre.defaultHttpClient = new HttpClient(manoeuvre.defaultRequest.defaults({
-    headers: {
-      Authorization: `Bearer ${authenticator.getToken()}`,
-    },
-  }));
-  manoeuvre.api = new Api(manoeuvre.defaultHttpClient);
-  manoeuvre.rateLimiting = rateLimiting;
-};
+manoeuvre.config = authenticator.fetchConfig;
+manoeuvre.oauth = oauth;
+// The original behavior was to use global configuration.
+manoeuvre.defaultHttpClient = new HttpClient(manoeuvre.defaultRequest.defaults({
+  headers: {
+    Authorization: `Bearer ${authenticator.getToken()}`,
+  },
+}));
+manoeuvre.api = new Api(manoeuvre.defaultHttpClient);
+manoeuvre.rateLimiting = rateLimiting;
 
 // and export
 module.exports = manoeuvre;
