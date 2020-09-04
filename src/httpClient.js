@@ -21,6 +21,7 @@ HttpClient.prototype.getEndpoint = (endpoint, args = {}, done) => {
   return this.requestHelper(options, done);
 };
 
+
 //= ==== generic PUT =====
 HttpClient.prototype.putEndpoint = (endpoint, args = {}, done) => {
   // stringify the body object for passage
