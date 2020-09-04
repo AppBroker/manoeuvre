@@ -6,20 +6,20 @@ import RateLimit from './rateLimit';
 
 // request.debug = true
 
-const HttpClient = (request) => {
-  this.request = request;
-};
+class HttpClient {
+  constructor(request) {
+    this.request = request;
+  }
 
-HttpClient.prototype = {
-  constructor: HttpClient,
-  getEndpoint: (endpoint, args = {}, done) => {
+  getEndpoint(endpoint, args = {}, done) {
     const options = { url: endpoint };
     if (args.access_token) {
       options.headers = { Authorization: `Bearer ${args.access_token}` };
     }
     return this.requestHelper(options, done);
-  },
-  putEndpoint: (endpoint, args = {}, done) => {
+  }
+
+  putEndpoint(endpoint, args = {}, done) {
     // stringify the body object for passage
     const qs = querystring.stringify(args.body);
     const options = {
@@ -33,8 +33,9 @@ HttpClient.prototype = {
     // add form data if present
     if (args.form) { options.form = args.form; }
     return this.requestHelper(options, done);
-  },
-  postEndpoint: (endpoint, args = {}, done) => {
+  }
+
+  postEndpoint(endpoint, args = {}, done) {
     const options = {
       url: endpoint,
       method: 'POST',
@@ -48,8 +49,9 @@ HttpClient.prototype = {
     // add multipart data if present
     if (args.multipart) { options.multipart = args.multipart; }
     return this.requestHelper(options, done);
-  },
-  deleteEndpoint: (endpoint, args = {}, done) => {
+  }
+
+  deleteEndpoint(endpoint, args = {}, done) {
     // stringify the body object for passage
     const qs = querystring.stringify(args.body);
     const options = {
@@ -61,8 +63,9 @@ HttpClient.prototype = {
       options.headers = { Authorization: `Bearer ${args.access_token}` };
     }
     return this.requestHelper(options, done);
-  },
-  postUpload: (args = {}, done) => {
+  }
+
+  postUpload(args = {}, done) {
     const options = {
       url: 'uploads',
       method: 'POST',
@@ -75,39 +78,9 @@ HttpClient.prototype = {
       options.headers = { Authorization: `Bearer ${args.access_token}` };
     }
     return Promise.resolve(this.request.post(options)).asCallback(done);
-  },
-  getPaginationQS: (args) => {
-    // setup pagination query args
-    const page = typeof args.page !== 'undefined' ? args.page : null;
-    // eslint-disable-next-line camelcase
-    const per_page = typeof args.per_page !== 'undefined' ? args.per_page : null;
-    const qa = {};
-    if (page) { qa.page = page; }
-    // eslint-disable-next-line camelcase
-    if (per_page !== null) { qa.per_page = per_page; }
-    const qs = querystring.stringify(qa);
-    return qs;
-  },
-  getQS: (allowedProps, args) => {
-    const qa = {};
-    for (let i = 0; i < allowedProps.length; i += 1) {
-      if (Object.prototype.hasOwnProperty.call(args, allowedProps[i])) {
-        qa[allowedProps[i]] = args[allowedProps[i]];
-      }
-    }
-    const qs = querystring.stringify(qa);
-    return qs;
-  },
-  getRequestBodyObj: (allowedProps, args) => {
-    const body = {};
-    for (let i = 0; i < allowedProps.length; i += 1) {
-      if (Object.prototype.hasOwnProperty.call(args, allowedProps[i])) {
-        body[allowedProps[i]] = args[allowedProps[i]];
-      }
-    }
-    return body;
-  },
-  requestHelper: (options = {}, done) => {
+  }
+
+  requestHelper(options = {}, done) {
     // We need the full response so we can get at the headers
     const reqOptions = { ...options };
     reqOptions.resolveWithFullResponse = true;
@@ -142,7 +115,7 @@ HttpClient.prototype = {
         return Promise.reject(e);
       })
       .asCallback(callback);
-  },
-};
+  }
+}
 
 export default HttpClient;
