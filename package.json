@@ -18,9 +18,7 @@
 		"lint": "eslint ./src/**/*.js",
 		"build": "webpack"
 	},
-	"files": [
-		"index.js"
-	],
+	"files": ["dist/*", "src/*"],
 	"keywords": [
 		"affiliates",
 		"tracking",
