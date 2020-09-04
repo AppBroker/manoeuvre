@@ -1,11 +1,12 @@
+import HttpClient from './httpClient';
+import Api from './api';
+
 const request = require('request-promise');
 const oauth = require('./oauth');
 const authenticator = require('./authenticator');
 const rateLimiting = require('./rateLimit');
 
 const { version } = require('../package').version;
-const HttpClient = require('./httpClient');
-const Api = require('./api');
 
 const manoeuvre = {};
 const accessToken = '12345';

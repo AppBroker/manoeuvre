@@ -55,4 +55,4 @@ Api.prototype.stats = (args, done) => {
   return this.client.postEndpoint(endpoint, args, done);
 };
 
-module.exports = Api;
+export default Api;
