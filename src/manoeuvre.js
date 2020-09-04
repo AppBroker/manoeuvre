@@ -38,4 +38,4 @@ class Manoeuvre {
   }
 }
 // and export
-export default Manoeuvre;
+export { Manoeuvre };
