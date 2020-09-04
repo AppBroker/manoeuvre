@@ -8,38 +8,22 @@ const HttpClient = require('./httpClient');
 const Api = require('./api');
 
 const manoeuvre = {};
+const accessToken = '12345';
 
 manoeuvre.defaultRequest = request.defaults({
   baseUrl: ' https://customermanager.mybluemix.net/api/userservice/',
   headers: {
     'User-Agent': `manoeuvre v${version}`,
+    Authorization: `Bearer ${accessToken}`,
   },
   json: true,
 });
 
-this.access_token = '12345';
-
-this.request = manoeuvre.defaultRequest;
-
-this.request = this.request.defaults({
-  headers: {
-    Authorization: `Bearer ${this.access_token}`,
-  },
-});
-
-const httpClient = new HttpClient(this.request);
-this.api = new Api(httpClient);
-this.rateLimiting = rateLimiting;
+const httpClient = new HttpClient(manoeuvre.defaultRequest);
 
 manoeuvre.config = authenticator.fetchConfig;
 manoeuvre.oauth = oauth;
-// The original behavior was to use global configuration.
-manoeuvre.defaultHttpClient = new HttpClient(manoeuvre.defaultRequest.defaults({
-  headers: {
-    Authorization: `Bearer ${authenticator.getToken()}`,
-  },
-}));
-manoeuvre.api = new Api(manoeuvre.defaultHttpClient);
+manoeuvre.api = new Api(httpClient);
 manoeuvre.rateLimiting = rateLimiting;
 
 // and export
