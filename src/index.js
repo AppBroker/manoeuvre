@@ -24,6 +24,18 @@ class Manoeuvre {
     this.api = new Api(new HttpClient(this.defaultRequest));
     this.rateLimiting = rateLimiting;
   }
+
+  add(args) {
+    return this.api.add(args);
+  }
+
+  update(args) {
+    return this.api.update(args);
+  }
+
+  stats(args) {
+    return this.api.stats(args);
+  }
 }
 // and export
 export default Manoeuvre;
