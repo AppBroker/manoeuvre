@@ -2,31 +2,16 @@
 
 > Simple Node wrapper for Manoeuvre's v1 API - Affiliate Tracking for Mobile Apps
 
-This is what I use for [my own modules](https://www.npmjs.com/~sindresorhus).
-
-Also check out [`node-cli-boilerplate`](https://github.com/sindresorhus/node-cli-boilerplate).
-
 ## Getting started
 
-**Click the "Use this template" button.**
+Node wrapper that interfaces with Manoeuvre's affiliate tracking system. Developers can sign up for an account with Manoeuvre here. Once signed up, set up your apps and your affiliates in the system, make a note of your appId and your api key, you will need them to set up the tracking and start sharing revenue with your affiliates. Manoeuvre works by tracking each of your apps and the traffic passed through each by your affiliates through 3 different stages, landing & promo pages, downloads and payment.
 
-Alternatively, create a new directory and then run:
-
-```
-$ curl -fsSL https://github.com/sindresorhus/node-module-boilerplate/archive/master.tar.gz | tar -xz --strip-components=1
-```
-
-There's also a [Yeoman generator](https://github.com/sindresorhus/generator-nm).
-
----
-
-**Remove everything from here and above**
 
 ---
 
 # manoeuvre [![Build Status](https://travis-ci.com/AppBroker/manoeuvre.svg?branch=master)](https://travis-ci.com/AppBroker/manoeuvre)
 
-> My awesome module
+> Manoeuvre wrapper for Manoeuvre's v1 API - Affiliate Tracking for Mobile Apps
 
 ## Install
 
@@ -37,30 +22,29 @@ $ npm install manoeuvre
 ## Usage
 
 ```js
-const manoeuvre = require('manoeuvre');
-
-manoeuvre('unicorns');
-//=> 'unicorns & rainbows'
+const manoeuvre = require("manoeuvre")
+// Set config
+const config = {
+	valid_for: 360
+}
+//Set up tracker
+var tracker = new manoeuvre.tracker(config)
+//Add to your application landing page, passing the referred affiliates ID, and your unique app ID, leave the rest to us.
+tracker.add({ affiliateId: '12345', appId: '1234' })
+//On succesful load of your app potentially your homepage call the following
+tracker.update({ appId: '1234', status: 'downloaded' })
+//On succesful payment/purchase of your app
+tracker.update({ appId: '1234', status: 'paid' })
 ```
 
 ## API
 
 ### API with Token
 
-You will want to use OAuth `access_token`s on behalf of specific users once
-your app is in production. Using an `access_token` specific to a validated user
-allows for detailed athlete information, as well as the option for additional
-`PUT`/`POST`/`DELETE` privileges.
-
-Use app-specific logic to retrieve the `access\_token` for a particular user, then create a Manoeuvre client for that user, with their token:
+Coming soon
 
 ```js
-import manouevre from 'manoeuvre';
-
-// ... get access_token from somewhere
-manoeuvreClient = new manouevre.clientConfig(access_token);
-
-const payload = await manoeuvreClient.api.add({...args})
+Coming soon
 ```
 
 ### manoeuvre(input, options?)

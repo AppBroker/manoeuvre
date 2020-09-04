@@ -8,7 +8,7 @@ import rateLimiting from './rateLimit';
 const { version } = require('../package').version;
 
 class tracker {
-  constructor() {
+  constructor(trackerConfig) {
     const accessToken = '12345';
     this.defaultRequest = request.defaults({
       baseUrl: ' https://customermanager.mybluemix.net/api/userservice/',
@@ -20,13 +20,17 @@ class tracker {
     });
 
     this.config = authenticator.fetchConfig;
+    this.trackerConfig = trackerConfig;
     this.oauth = oauth;
     this.api = new Api(new HttpClient(this.defaultRequest));
     this.rateLimiting = rateLimiting;
   }
 
-  add(args) {
-    return this.api.add(args);
+  add(args, callback) {
+    const config = this.trackerConfig ? this.trackerConfig : {};
+    const payload = { ...args };
+    payload.config = config;
+    return this.api.add(payload, callback);
   }
 
   update(args) {
