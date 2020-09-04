@@ -27,4 +27,4 @@ manoeuvre.api = new Api(httpClient);
 manoeuvre.rateLimiting = rateLimiting;
 
 // and export
-module.exports = manoeuvre;
+export default manoeuvre;
