@@ -7,22 +7,23 @@ import rateLimiting from './rateLimit';
 
 const { version } = require('../package').version;
 
-const manoeuvre = {};
-const accessToken = '12345';
+class Manoeuvre {
+  constructor() {
+    const accessToken = '12345';
+    this.defaultRequest = request.defaults({
+      baseUrl: ' https://customermanager.mybluemix.net/api/userservice/',
+      headers: {
+        'User-Agent': `manoeuvre v${version}`,
+        Authorization: `Bearer ${accessToken}`,
+      },
+      json: true,
+    });
 
-manoeuvre.defaultRequest = request.defaults({
-  baseUrl: ' https://customermanager.mybluemix.net/api/userservice/',
-  headers: {
-    'User-Agent': `manoeuvre v${version}`,
-    Authorization: `Bearer ${accessToken}`,
-  },
-  json: true,
-});
-
-manoeuvre.config = authenticator.fetchConfig;
-manoeuvre.oauth = oauth;
-manoeuvre.api = new Api(new HttpClient(manoeuvre.defaultRequest));
-manoeuvre.rateLimiting = rateLimiting;
-
+    this.config = authenticator.fetchConfig;
+    this.oauth = oauth;
+    this.api = new Api(new HttpClient(this.defaultRequest));
+    this.rateLimiting = rateLimiting;
+  }
+}
 // and export
-export default manoeuvre;
+export default Manoeuvre;
