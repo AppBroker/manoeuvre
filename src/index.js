@@ -1,7 +1,6 @@
-import HttpClient from './httpClient';
-import Api from './api';
-
 const request = require('request-promise');
+const HttpClient = require('./httpClient');
+const Api = require('./api');
 const oauth = require('./oauth');
 const authenticator = require('./authenticator');
 const rateLimiting = require('./rateLimit');
