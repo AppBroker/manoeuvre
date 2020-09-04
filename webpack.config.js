@@ -1,11 +1,17 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+  },
   mode: 'production',
   target: 'node',
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
+    library: 'manoeuvre',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+    globalObject: 'this',
+    path: path.resolve(__dirname, './dist'),
   },
 };
