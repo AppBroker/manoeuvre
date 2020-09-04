@@ -6,7 +6,7 @@ const RateLimit = require('./rateLimit');
 
 // request.debug = true
 
-const HttpClient = (request) => {
+export const HttpClient = (request) => {
   this.request = request;
 };
 
