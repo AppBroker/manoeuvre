@@ -30,16 +30,15 @@ manoeuvre.clientConfig = (token, req) => {
 
   const httpClient = new HttpClient(this.request);
   const api = new Api(httpClient);
-  this.rateLimiting = rateLimiting;
 
-  // manoeuvre.config = authenticator.fetchConfig;
-  // manoeuvre.oauth = oauth;
-  // // The original behavior was to use global configuration.
-  // manoeuvre.defaultHttpClient = new HttpClient(manoeuvre.defaultRequest.defaults({
-  //   headers: {
-  //     Authorization: `Bearer ${authenticator.getToken()}`,
-  //   },
-  // }));
+  manoeuvre.config = authenticator.fetchConfig;
+  manoeuvre.oauth = oauth;
+  // The original behavior was to use global configuration.
+  manoeuvre.defaultHttpClient = new HttpClient(manoeuvre.defaultRequest.defaults({
+    headers: {
+      Authorization: `Bearer ${authenticator.getToken()}`,
+    },
+  }));
   manoeuvre.api = api;
   manoeuvre.rateLimiting = rateLimiting;
 };
