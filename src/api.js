@@ -46,7 +46,8 @@ Api.prototype.update = (args, done) => {
 Api.prototype.stats = (args, done) => {
 	const affId = args.affiliate_id
 	const endpoint = 'affiliate_stats/' + affId;
-	return this.client.getEndpoint(endpoint, args, done);
+	// TODO change back to get
+	return this.client.postEndpoint(endpoint, args, done);
 }
 
 module.exports = Api;

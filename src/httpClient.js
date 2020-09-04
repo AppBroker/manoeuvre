@@ -11,7 +11,7 @@ const HttpClient = (request) => {
 };
 
 //= ==== generic GET =====
-HttpClient.prototype.getEndpoint = (endpoint, args = {}, done) => {
+/*HttpClient.prototype.getEndpoint = (endpoint, args = {}, done) => {
   const options = { url: endpoint };
   if (args.access_token) {
     options.headers = { Authorization: `Bearer ${args.access_token}` };
@@ -19,7 +19,7 @@ HttpClient.prototype.getEndpoint = (endpoint, args = {}, done) => {
 
 
   return this.requestHelper(options, done);
-};
+};*/
 
 
 //= ==== generic PUT =====
