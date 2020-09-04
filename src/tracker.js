@@ -7,7 +7,7 @@ import rateLimiting from './rateLimit';
 
 const { version } = require('../package').version;
 
-class Manoeuvre {
+class tracker {
   constructor() {
     const accessToken = '12345';
     this.defaultRequest = request.defaults({
@@ -38,4 +38,4 @@ class Manoeuvre {
   }
 }
 // and export
-export { Manoeuvre };
+export { tracker };

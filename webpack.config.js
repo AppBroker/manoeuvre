@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    index: './src/manoeuvre.js',
+    index: './src/tracker.js',
   },
   mode: 'production',
   target: 'node',
