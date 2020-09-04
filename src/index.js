@@ -23,7 +23,7 @@ const httpClient = new HttpClient(manoeuvre.defaultRequest);
 
 manoeuvre.config = authenticator.fetchConfig;
 manoeuvre.oauth = oauth;
-manoeuvre.api = new Api(httpClient);
+//manoeuvre.api = new Api(httpClient);
 manoeuvre.rateLimiting = rateLimiting;
 
 // and export
