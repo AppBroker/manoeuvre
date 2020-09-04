@@ -38,4 +38,4 @@ class Manoeuvre {
   }
 }
 // and export
-module.exports = Manoeuvre;
+export default Manoeuvre;
