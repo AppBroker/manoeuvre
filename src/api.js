@@ -1,5 +1,5 @@
 class Api {
-  construtor(client) {
+  constructor(client) {
     this.client = client;
   }
 
