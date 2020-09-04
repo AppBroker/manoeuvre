@@ -1,12 +1,11 @@
 const request = require('request-promise');
 const oauth = require('./oauth');
 const authenticator = require('./authenticator');
-
-const Api = require('./api');
 const rateLimiting = require('./rateLimit');
 
 const { version } = require('../package').version;
 const HttpClient = require('./httpClient');
+const Api = require('./api');
 
 const manoeuvre = {};
 
@@ -30,18 +29,18 @@ manoeuvre.clientConfig = (token, req) => {
   });
 
   const httpClient = new HttpClient(this.request);
-  this.api = new Api(httpClient);
+  const api = new Api(httpClient);
   this.rateLimiting = rateLimiting;
 
-  manoeuvre.config = authenticator.fetchConfig;
-  manoeuvre.oauth = oauth;
-  // The original behavior was to use global configuration.
-  manoeuvre.defaultHttpClient = new HttpClient(manoeuvre.defaultRequest.defaults({
-    headers: {
-      Authorization: `Bearer ${authenticator.getToken()}`,
-    },
-  }));
-  manoeuvre.api = new Api(manoeuvre.defaultHttpClient);
+  // manoeuvre.config = authenticator.fetchConfig;
+  // manoeuvre.oauth = oauth;
+  // // The original behavior was to use global configuration.
+  // manoeuvre.defaultHttpClient = new HttpClient(manoeuvre.defaultRequest.defaults({
+  //   headers: {
+  //     Authorization: `Bearer ${authenticator.getToken()}`,
+  //   },
+  // }));
+  manoeuvre.api = api;
   manoeuvre.rateLimiting = rateLimiting;
 };
 
