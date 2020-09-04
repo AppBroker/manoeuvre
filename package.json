@@ -1,6 +1,6 @@
 {
 	"name": "manoeuvre",
-	"version": "0.0.16",
+	"version": "0.0.17",
 	"description": "Simple Node wrapper for Manoeuvre's v1 API",
 	"license": "MIT",
 	"repository": "AppBroker/manoeuvre",
@@ -18,7 +18,10 @@
 		"lint": "eslint ./src/**/*.js",
 		"build": "webpack"
 	},
-	"files": ["dist/*", "src/*"],
+	"files": [
+		"dist/*",
+		"src/*"
+	],
 	"keywords": [
 		"affiliates",
 		"tracking",
