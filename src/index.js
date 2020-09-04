@@ -21,7 +21,7 @@ manoeuvre.defaultRequest = request.defaults({
 
 manoeuvre.config = authenticator.fetchConfig;
 manoeuvre.oauth = oauth;
-manoeuvre.api = new Api(new HttpClient(manoeuvre.defaultRequest));
+//manoeuvre.api = new Api(new HttpClient(manoeuvre.defaultRequest));
 manoeuvre.rateLimiting = rateLimiting;
 
 // and export
