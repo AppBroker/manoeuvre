@@ -19,7 +19,7 @@ manoeuvre.defaultRequest = request.defaults({
   json: true,
 });
 
-const httpClient = new HttpClient(manoeuvre.defaultRequest);
+//const httpClient = new HttpClient(manoeuvre.defaultRequest);
 
 manoeuvre.config = authenticator.fetchConfig;
 manoeuvre.oauth = oauth;
