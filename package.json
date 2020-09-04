@@ -4,7 +4,7 @@
 	"description": "Simple Node wrapper for Manoeuvre's v1 API",
 	"license": "MIT",
 	"repository": "AppBroker/manoeuvre",
-	"main": "./dist/index.js",
+	"main": "./src/index.js",
 	"author": {
 		"name": "Ryan McLaughlin",
 		"email": "rmclaughlin@appbroker.biz",
