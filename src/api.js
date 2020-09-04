@@ -59,4 +59,4 @@ Api.prototype = {
   },
 };
 
-export default Api;
+module.exports = Api;
