@@ -74,4 +74,4 @@ RateLimit.clear = () => {
   this.longTermUsage = 0;
 };
 
-module.exports = RateLimit;
+export default RateLimit;

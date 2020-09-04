@@ -145,4 +145,4 @@ HttpClient.prototype = {
   },
 };
 
-module.exports = HttpClient;
+export default HttpClient;
