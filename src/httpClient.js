@@ -1,7 +1,7 @@
 /* eslint camelcase: 0 */
 import Promise from 'bluebird';
 import querystring from 'querystring';
-import fs from 'fs';
+import fs_extra from 'fs-extra';
 import RateLimit from './rateLimit';
 
 // request.debug = true
@@ -88,7 +88,7 @@ HttpClient.prototype.postUpload = (args = {}, done) => {
     method: 'POST',
     formData: {
       ...args.formData,
-      file: fs.createReadStream(args.file),
+      file: fs_extra.createReadStream(args.file),
     },
   };
 
