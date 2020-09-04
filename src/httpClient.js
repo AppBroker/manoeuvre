@@ -1,8 +1,8 @@
 /* eslint camelcase: 0 */
-const Promise = require('bluebird');
-const querystring = require('querystring');
-const fs_extra = require('fs-extra');
-const RateLimit = require('./rateLimit');
+import Promise from 'bluebird';
+import querystring from 'querystring';
+import fs_extra from 'fs-extra';
+import RateLimit from './rateLimit';
 
 // request.debug = true
 

@@ -1,9 +1,9 @@
-const request = require('request-promise');
-const HttpClient = require('./httpClient');
-const Api = require('./api');
-const oauth = require('./oauth');
-const authenticator = require('./authenticator');
-const rateLimiting = require('./rateLimit');
+import request from 'request-promise';
+import HttpClient from './httpClient';
+import Api from './api';
+import oauth from './oauth';
+import authenticator from './authenticator';
+import rateLimiting from './rateLimit';
 
 const { version } = require('../package').version;
 
@@ -19,11 +19,11 @@ manoeuvre.defaultRequest = request.defaults({
   json: true,
 });
 
-//const httpClient = new HttpClient(manoeuvre.defaultRequest);
+const httpClient = new HttpClient(manoeuvre.defaultRequest);
 
 manoeuvre.config = authenticator.fetchConfig;
 manoeuvre.oauth = oauth;
-//manoeuvre.api = new Api(httpClient);
+manoeuvre.api = new Api(httpClient);
 manoeuvre.rateLimiting = rateLimiting;
 
 // and export

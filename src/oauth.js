@@ -1,7 +1,7 @@
-const Promise = require('bluebird');
-const request = require('request-promise');
-const querystring = require('querystring');
-const authenticator = require('./authenticator');
+import Promise from 'bluebird';
+import request from 'request-promise';
+import querystring from 'querystring';
+import authenticator from './authenticator';
 
 const oauth = {};
 

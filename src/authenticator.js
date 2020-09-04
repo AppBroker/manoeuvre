@@ -1,4 +1,4 @@
-const fsExtra = require('fs-extra');
+import fsExtra from 'fs-extra';
 
 const configPath = 'data/manoeuvre_config';
 
