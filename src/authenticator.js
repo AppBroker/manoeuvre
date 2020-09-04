@@ -1,4 +1,4 @@
-import fs_extra from 'fs-extra';
+const fsExtra = require('fs-extra');
 
 const configPath = 'data/manoeuvre_config';
 
@@ -9,7 +9,7 @@ let redirectUri;
 
 const readConfigFile = () => {
   try {
-    let config = fs_extra.readFileSync(configPath, { encoding: 'utf-8' });
+    let config = fsExtra.readFileSync(configPath, { encoding: 'utf-8' });
     config = JSON.parse(config);
     if (config.access_token) token = config.access_token;
     if (config.client_id) clientId = config.client_id;
