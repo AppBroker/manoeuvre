@@ -19,8 +19,7 @@
 		"build": "webpack"
 	},
 	"files": [
-		"dist/*",
-		"src/*"
+		"dist/*"
 	],
 	"keywords": [
 		"affiliates",
