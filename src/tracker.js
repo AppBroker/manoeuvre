@@ -10,19 +10,16 @@ const { version } = require('../package').version;
 class tracker {
   constructor(trackerConfig) {
     const accessToken = '12345';
-    this.defaultRequest = axios.defaults({
-      baseUrl: ' https://customermanager.mybluemix.net/api/userservice/',
-      headers: {
-        'User-Agent': `manoeuvre v${version}`,
-        Authorization: `Bearer ${accessToken}`,
-      },
-      json: true,
-    });
+
+    axios.defaults.baseURL = 'https://customermanager.mybluemix.net/api/userservice/';
+    axios.defaults.headers['User-Agent'] = `manoeuvre v${version}`;
+    axios.defaults.headers.Authorization = `Bearer ${accessToken}`;
+    axios.defaults.headers.post['Content-Type'] = 'application/json';
 
     this.config = authenticator.fetchConfig;
     this.trackerConfig = trackerConfig;
     this.oauth = oauth;
-    this.api = new Api(new HttpClient(this.defaultRequest));
+    this.api = new Api(new HttpClient(axios));
     this.rateLimiting = rateLimiting;
   }
 

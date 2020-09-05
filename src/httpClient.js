@@ -11,7 +11,10 @@ class HttpClient {
   }
 
   getEndpoint(endpoint, args = {}, done) {
-    const options = { url: endpoint };
+    const options = {
+      url: endpoint,
+      data: {},
+    };
     if (args.access_token) {
       options.headers = { Authorization: `Bearer ${args.access_token}` };
     }
@@ -24,7 +27,7 @@ class HttpClient {
     const options = {
       url: endpoint,
       method: 'PUT',
-      body: qs,
+      data: qs,
     };
     if (args.access_token) {
       options.headers = { Authorization: `Bearer ${args.access_token}` };
@@ -38,7 +41,7 @@ class HttpClient {
     const options = {
       url: endpoint,
       method: 'POST',
-      body: args.body,
+      data: args.body,
     };
     if (args.access_token) {
       options.headers = { Authorization: `Bearer ${args.access_token}` };
