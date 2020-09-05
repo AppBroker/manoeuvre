@@ -1,3 +1,5 @@
+import platform from 'platform';
+
 class Api {
   constructor(client) {
     this.client = client;
@@ -27,7 +29,8 @@ class Api {
 
   add(args = {}, done) {
     const endpoint = 'affiliate_add';
-    const payload = { ...args };
+	const payload = { ...args };
+	console.log('platform', platform);
     payload.body = {
       device_type: args.device_type,
       ip_address: args.ip_address,

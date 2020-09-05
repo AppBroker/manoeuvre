@@ -7,7 +7,6 @@ class RateLimit {
     this.longTermUsage = 0;
   }
 
-  // should be called as `strava.rateLimiting.exceeded()
   // to determine if the most recent request exceeded the rate limit
   exceeded() {
     if (this.shortTermUsage >= this.shortTermLimit) {
