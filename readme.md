@@ -6,6 +6,8 @@
 
 Node wrapper that interfaces with Manoeuvre's affiliate tracking system. Developers can sign up for an account with Manoeuvre here. Once signed up, set up your apps and your affiliates in the system, make a note of your appId and your api key, you will need them to set up the tracking and start sharing revenue with your affiliates. Manoeuvre works by tracking each of your apps and the traffic passed through each by your affiliates through 3 different stages, landing & promo pages, downloads and payment.
 
+![Image](https://repository-images.githubusercontent.com/292555327/2c9c1680-ef15-11ea-957c-54204829eae4)
+
 
 ---
 
