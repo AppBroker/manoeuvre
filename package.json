@@ -29,12 +29,11 @@
 		"revshare"
 	],
 	"dependencies": {
+		"axios": "^0.20.0",
 		"bluebird": "^3.7.2",
 		"fs-extra": "^9.0.1",
 		"path": "^0.12.7",
 		"querystring": "^0.2.0",
-		"request": "^2.88.2",
-		"request-promise": "^4.2.6",
 		"tough-cookie": "^4.0.0"
 	},
 	"devDependencies": {
@@ -43,6 +42,7 @@
 		"eslint-config-airbnb-base": "^14.2.0",
 		"eslint-plugin-import": "^2.22.0",
 		"webpack": "^4.44.1",
+		"webpack-bundle-analyzer": "^3.8.0",
 		"webpack-cli": "^3.3.12",
 		"xo": "^0.33.0"
 	}

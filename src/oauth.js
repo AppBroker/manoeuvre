@@ -1,5 +1,4 @@
-import Promise from 'bluebird';
-import request from 'request-promise';
+import axios from 'axios';
 import querystring from 'querystring';
 import authenticator from './authenticator';
 
@@ -43,7 +42,7 @@ oauth.getRequestAccessURL = (args) => {
  *
  *  Ref: http://developers.strava.com/docs/authentication/
  */
-oauth.getToken = (authorizationCode, done) => request({
+oauth.getToken = (authorizationCode, done) => axios({
   method: 'POST',
   url: 'https://customermanager.mybluemix.net/api/userservice/oauth/token',
   json: true,
@@ -74,7 +73,7 @@ oauth.deauthorize = (args, done) => {
   // Promise.resolve is used to convert the promise returned
   // to a Bluebird promise
   // asCallback is used to support both Promise and callback-based APIs
-  return Promise.resolve(request(options)).asCallback(done);
+  return Promise.resolve(axios(options)).asCallback(done);
 };
 
 /**
@@ -110,6 +109,6 @@ oauth.refreshToken = (refreshToken) => {
       grant_type: 'refresh_token',
     },
   };
-  return request(options);
+  return axios(options);
 };
 export default oauth;

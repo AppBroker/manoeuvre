@@ -1,5 +1,4 @@
 /* eslint camelcase: 0 */
-import Promise from 'bluebird';
 import querystring from 'querystring';
 import fs_extra from 'fs-extra';
 import RateLimit from './rateLimit';

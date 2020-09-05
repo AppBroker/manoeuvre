@@ -1,4 +1,4 @@
-import request from 'request-promise';
+import axios from 'axios';
 import HttpClient from './httpClient';
 import Api from './api';
 import oauth from './oauth';
@@ -10,7 +10,7 @@ const { version } = require('../package').version;
 class tracker {
   constructor(trackerConfig) {
     const accessToken = '12345';
-    this.defaultRequest = request.defaults({
+    this.defaultRequest = axios.defaults({
       baseUrl: ' https://customermanager.mybluemix.net/api/userservice/',
       headers: {
         'User-Agent': `manoeuvre v${version}`,
