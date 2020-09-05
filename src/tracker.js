@@ -13,7 +13,7 @@ class tracker {
 
     axios.defaults.baseURL = 'https://customermanager.mybluemix.net/api/userservice/';
     axios.defaults.headers['User-Agent'] = `manoeuvre v${version}`;
-    axios.defaults.headers.Authorization = `Bearer ${accessToken}`;
+    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
     axios.defaults.headers.post['Content-Type'] = 'application/json';
 
     this.config = authenticator.fetchConfig;
