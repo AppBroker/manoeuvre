@@ -99,10 +99,9 @@ class HttpClient {
         done(err, payload, limits);
       };
     }
-    // Promise.resolve is used to convert the promise returned
-    //  to a Bluebird promise
+
     // asCallback is used to support both Promise and callback-based APIs
-    return Promise.resolve(this.request(reqOptions))
+    return this.request(reqOptions)
       .then((response) => {
         // The old callback API returns returns the current limits
         //  as an extra arg in the callback
@@ -115,8 +114,7 @@ class HttpClient {
           limits = RateLimit.updateRateLimits(e.response.headers);
         }
         return Promise.reject(e);
-      })
-      .asCallback(callback);
+      });
   }
 }
 

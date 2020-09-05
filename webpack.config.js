@@ -1,12 +1,12 @@
 const path = require('path');
-const bundleAnalyzer = require('webpack-bundle-analyzer');
+// const bundleAnalyzer = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: {
     index: './src/tracker.js',
   },
   plugins: [
-    new bundleAnalyzer.BundleAnalyzerPlugin(),
+    // new bundleAnalyzer.BundleAnalyzerPlugin(),
   ],
   mode: 'production',
   target: 'node',
