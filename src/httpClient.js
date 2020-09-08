@@ -42,7 +42,7 @@ class HttpClient {
     const options = {
       url: endpoint,
       method: 'POST',
-      data: args.body,
+      data: args,
     };
     if (args.access_token) {
       options.headers = { Authorization: `Bearer ${args.access_token}` };

@@ -6,6 +6,13 @@ class Api {
   }
 
   /*
+{
+    "deviceType": "GALAXY S6 Ed2",
+    "ipAddress": "1.2.5",
+    "appId": "appId84",
+    "affiliateId": "affid84",
+    "config": {“validFor”: 6000}
+}
 	{
 		"device_type": "GALAXY S6 Edge",
 		"ip_address": "900",
@@ -29,16 +36,15 @@ class Api {
 
   add(args = {}, done) {
     const endpoint = 'affiliate_add';
-	const payload = { ...args };
-	console.log('platform', platform);
-    payload.body = {
-      device_type: args.device_type,
-      ip_address: args.ip_address,
-      status: args.status,
+    // const payload = { ...args };
+    const payload = {
+      deviceType: 'GALAXY S6 Ed2',
+      ipAddress: '1.2.5',
+      appId: 'appId84',
+      affiliateId: 'affid84',
+      config: { validFor: 6000 },
     };
-    if (('config' in args) && ('valid_for' in args.config)) {
-      payload.config = { valid_for: payload.config.valid_for };
-    }
+    console.log('platform', platform);
     return this.client.postEndpoint(endpoint, payload, done);
   }
 
