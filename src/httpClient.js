@@ -92,22 +92,19 @@ class HttpClient {
     // Neither of which the Strava API is expected to return.
     reqOptions.simple = true;
     let limits;
-    let callback;
-    // For asCallback to work properly, a function should only be passed to it
-    //  if the caller provided one
-    if (done) {
-      callback = (err, payload) => {
-        done(err, payload, limits);
-      };
-    }
-
     try {
       // fetch data from a url endpoint
       const data = await this.request(reqOptions);
-      callback();
+      if (done) {
+        const callback = (err, payload) => {
+          console.log('DONE!', err, payload)
+          done(err, payload, limits);
+        };
+        callback();
+      }
       return data;
     } catch (error) {
-      console.log("error", error);
+      console.log('error', error);
       // appropriately handle the error
       return error;
     }
