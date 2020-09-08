@@ -87,9 +87,6 @@ class HttpClient {
     // We need the full response so we can get at the headers
     const reqOptions = { ...options };
     reqOptions.resolveWithFullResponse = true;
-    // reject promise with 'StatusCodeError' for non-2xx responses.
-    // This would include 3xx redirects and 304 Request-Not-Modified,
-    // Neither of which the Strava API is expected to return.
     reqOptions.simple = true;
     let limits;
     try {
@@ -97,7 +94,6 @@ class HttpClient {
       const data = await this.request(reqOptions);
       if (done) {
         const callback = (err, payload) => {
-          console.log('DONE!', err, payload)
           done(err, payload, limits);
         };
         callback();
