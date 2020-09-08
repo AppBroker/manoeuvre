@@ -101,22 +101,16 @@ class HttpClient {
       };
     }
 
-    // asCallback is used to support both Promise and callback-based APIs
-    await this.request(reqOptions)
-      .then((response) => {
-        // The old callback API returns returns the current limits
-        //  as an extra arg in the callback
-        // The newer promise-bsed API updates a global rateLimiting counter
-        limits = this.rateLimit.updateRateLimits(response.headers);
-        return Promise.resolve(response.body);
-      })
-      .catch((e) => {
-        if (e.response && e.response.headers) {
-          limits = this.rateLimit.updateRateLimits(e.response.headers);
-        }
-        return Promise.reject(e);
-      });
-    callback();
+    try {
+      // fetch data from a url endpoint
+      const data = await this.request(reqOptions);
+      callback();
+      return data;
+    } catch (error) {
+      console.log("error", error);
+      // appropriately handle the error
+      return error;
+    }
   }
 }
 
