@@ -1,9 +1,14 @@
-import platform from 'platform';
-
 class Api {
   constructor(client) {
     this.client = client;
   }
+/*
+const DeviceDetector = require('node-device-detector');
+const detector = new DeviceDetector;
+const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
+  const agent = detector.detect(userAgent)
+  return {device: agent.device.model}
+*/
 
   /*
 {
@@ -39,12 +44,10 @@ class Api {
     // const payload = { ...args };
     // User adds affiliateId and appId, we tale care of other details
     const payload = {
-      deviceType: platform.name,
-      appId: 'appId84',
-      affiliateId: 'affid84',
+      appId: 'appId845',
+      affiliateId: 'affid845',
       config: { validFor: 6000 },
     };
-    console.log('platform', platform);
     return this.client.postEndpoint(endpoint, payload, done);
   }
 
