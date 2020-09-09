@@ -27,6 +27,7 @@ class HttpClient {
     const options = {
       url: endpoint,
       method: 'PUT',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
       data: qs,
     };
     if (args.access_token) {
@@ -41,6 +42,7 @@ class HttpClient {
     const options = {
       url: endpoint,
       method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
       data: args,
     };
     if (args.access_token) {
