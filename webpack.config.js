@@ -13,8 +13,8 @@ module.exports = {
   output: {
     filename: 'index.js',
     library: 'manoeuvre',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
+    libraryTarget: 'amd',
+    //umdNamedDefine: true,
     globalObject: 'this',
     path: path.resolve(__dirname, './dist'),
   },
