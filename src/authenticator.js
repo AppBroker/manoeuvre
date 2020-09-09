@@ -1,5 +1,3 @@
-import fsExtra from 'fs-extra';
-
 const configPath = 'data/manoeuvre_config';
 
 let token;
@@ -9,12 +7,12 @@ let redirectUri;
 
 const readConfigFile = () => {
   try {
-    let config = fsExtra.readFileSync(configPath, { encoding: 'utf-8' });
-    config = JSON.parse(config);
-    if (config.access_token) token = config.access_token;
-    if (config.client_id) clientId = config.client_id;
-    if (config.client_secret) clientSecret = config.client_secret;
-    if (config.redirect_uri) redirectUri = config.redirect_uri;
+    // let config = fsExtra.readFileSync(configPath, { encoding: 'utf-8' });
+    // config = JSON.parse(config);
+    // if (config.access_token) token = config.access_token;
+    // if (config.client_id) clientId = config.client_id;
+    // if (config.client_secret) clientSecret = config.client_secret;
+    // if (config.redirect_uri) redirectUri = config.redirect_uri;
   } catch (err) {
     // Config file does not exist. This may be a valid case if the config is
     // either passed directly as an argument or via environment variables

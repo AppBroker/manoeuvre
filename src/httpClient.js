@@ -1,6 +1,5 @@
 /* eslint camelcase: 0 */
 import querystring from 'querystring';
-import fs_extra from 'fs-extra';
 import RateLimit from './rateLimit';
 
 // request.debug = true
@@ -66,21 +65,6 @@ class HttpClient {
       options.headers = { Authorization: `Bearer ${args.access_token}` };
     }
     return this.requestHelper(options, done);
-  }
-
-  postUpload(args = {}, done) {
-    const options = {
-      url: 'uploads',
-      method: 'POST',
-      formData: {
-        ...args.formData,
-        file: fs_extra.createReadStream(args.file),
-      },
-    };
-    if (args.access_token) {
-      options.headers = { Authorization: `Bearer ${args.access_token}` };
-    }
-    return Promise.resolve(this.request.post(options)).asCallback(done);
   }
 
   async requestHelper(options = {}, done) {

@@ -9,7 +9,7 @@ module.exports = {
     // new bundleAnalyzer.BundleAnalyzerPlugin(),
   ],
   mode: 'production',
-  target: 'node',
+  target: 'web',
   output: {
     filename: 'index.js',
     library: 'manoeuvre',

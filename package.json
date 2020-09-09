@@ -30,8 +30,6 @@
 	],
 	"dependencies": {
 		"axios": "^0.20.0",
-		"bluebird": "^3.7.2",
-		"fs-extra": "^9.0.1",
 		"path": "^0.12.7",
 		"querystring": "^0.2.0",
 		"tough-cookie": "^4.0.0"
