@@ -25,10 +25,10 @@ $ npm install manoeuvre
 ## Usage
 
 ```js
-const manoeuvre = require("manoeuvre")
-// Set config
+import manoeuvre from 'manoeuvre'
+// Set config, validFor - tracking for an individual will expire after validFor in seconds
 const config = {
-	valid_for: 360
+	validFor: 360
 }
 //Set up tracker
 var tracker = new manoeuvre.tracker(config)
