@@ -30,10 +30,11 @@ import manoeuvre from 'manoeuvre'
 const config = {
 	validFor: 360
 }
-//Set up tracker
-var tracker = new manoeuvre.tracker(config)
+
+//Set up tracking
+const tracker = new manoeuvre(config)
 //Add to your application landing page, passing the referred affiliates ID, and your unique app ID, leave the rest to us.
-tracker.add({ affiliateId: '12345', appId: '1234' })
+tracker.add({ affiliateId: '12345', appId: '123456' })
 //On succesful load of your app potentially your homepage call the following
 tracker.update({ appId: '1234', status: 'downloaded' })
 //On succesful payment/purchase of your app
