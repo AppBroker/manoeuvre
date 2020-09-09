@@ -14,7 +14,7 @@ module.exports = {
     filename: 'index.js',
     library: 'manoeuvre',
     libraryTarget: 'umd',
-    globalObject: 'window',
+    globalObject: 'this',
     path: path.resolve(__dirname, './dist'),
   },
 };
