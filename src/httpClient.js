@@ -74,15 +74,14 @@ class HttpClient {
     const reqOptions = { ...options };
     reqOptions.resolveWithFullResponse = true;
     reqOptions.simple = true;
-    let limits;
     try {
       // fetch data from a url endpoint
       const data = await this.request(reqOptions);
       if (done) {
-        const callback = (err, payload) => {
-          done(err, payload, limits);
+        const callback = (res) => {
+          done(res);
         };
-        callback();
+        callback(data);
       }
       return data;
     } catch (error) {

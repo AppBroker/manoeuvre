@@ -30,11 +30,16 @@ class tracker {
   }
 
   update(args) {
-    return this.api.update(args);
+    return this.api.update(args, this.storeUUID.bind(this));
   }
 
   stats(args) {
     return this.api.stats(args);
+  }
+
+  storeUUID(res) {
+    this.uuIdObj = JSON.stringify(res.uuId);
+    localStorage.setItem('manoeuvre', this.uuIdObj);
   }
 }
 // and export

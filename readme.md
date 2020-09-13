@@ -22,9 +22,10 @@ Node wrapper that interfaces with Manoeuvre's affiliate tracking system. Develop
 $ npm install manoeuvre
 ```
 
-## Usage
+## Usage with Progressive Web Applications
 
 ```js
+// Inside the front end source of your progressive web application
 import manoeuvre from 'manoeuvre'
 // Set config, validFor - tracking for an individual will expire after validFor in seconds
 const config = {
@@ -43,29 +44,5 @@ tracker.update({ appId: '1234', status: 'paid' })
 
 ## API
 
-### API with Token
-
 Coming soon
 
-```js
-Coming soon
-```
-
-### manoeuvre(input, options?)
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-Type: `object`
-
-##### postfix
-
-Type: `string`\
-Default: `rainbows`
-
-Lorem ipsum.
