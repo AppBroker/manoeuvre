@@ -1,13 +1,8 @@
-/* eslint camelcase: 0 */
 import querystring from 'querystring';
-import RateLimit from './rateLimit';
-
-// request.debug = true
 
 class HttpClient {
   constructor(request) {
     this.request = request;
-    this.rateLimit = new RateLimit();
   }
 
   getEndpoint(endpoint, args = {}, done) {

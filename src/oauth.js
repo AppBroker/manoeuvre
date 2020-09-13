@@ -1,14 +1,13 @@
 import axios from 'axios';
 import querystring from 'querystring';
-import authenticator from './authenticator';
 
 const oauth = {};
 
 oauth.getRequestAccessURL = (args) => {
   let url = 'https://customermanager.mybluemix.net/api/userservice/oauth/authorize?';
   const oauthArgs = {
-    client_id: authenticator.getClientId(),
-    redirect_uri: authenticator.getRedirectUri(),
+    client_id: '123',
+    redirect_uri: '123',
     response_type: 'code',
   };
 
@@ -48,8 +47,8 @@ oauth.getToken = (authorizationCode, done) => axios({
   json: true,
   qs: {
     code: authorizationCode,
-    client_secret: authenticator.getClientSecret(),
-    client_id: authenticator.getClientId(),
+    client_secret: '123',
+    client_id: '123',
     grant_type: 'authorization_code',
   },
 }, done);
@@ -104,8 +103,8 @@ oauth.refreshToken = (refreshToken) => {
     simple: true,
     qs: {
       refresh_token: refreshToken,
-      client_id: authenticator.getClientId(),
-      client_secret: authenticator.getClientSecret(),
+      client_id: '123',
+      client_secret: '123',
       grant_type: 'refresh_token',
     },
   };
