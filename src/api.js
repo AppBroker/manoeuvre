@@ -5,10 +5,31 @@ class Api {
       paid: 'paid',
       downloaded: 'downloaded',
     };
+
+    this.keys = {
+      affiliateId: 'affiliateId',
+      appId: 'appId',
+      status: 'status',
+      uuId: 'uuId',
+    };
+  }
+
+  checkParamsAssigned(requiredParams, passedArgs) {
+    this.requiredKeys = requiredParams;
+    this.requiredKeys.forEach((key) => {
+      if (!passedArgs[key]) {
+        throw new Error(`Missing key: ${key} from passed arguments, please refer to the docs and correct your payload.`);
+      }
+    });
   }
 
   add(args = {}, done) {
     const endpoint = 'affiliate_add';
+    try {
+      this.checkParamsAssigned([this.keys.appId, this.keys.affiliateId], { ...args });
+    } catch (e) {
+      console.error(e);
+    }
     const config = args.config ? args.config : {};
     const payload = {
       appId: args.appId,
@@ -21,13 +42,15 @@ class Api {
   update(args = {}, done) {
     const endpoint = 'affiliate_update';
     const payload = { ...args };
-    const uuId = this.retrieveLocalUUID(payload.status);
-
-    payload.body = {
-      status: args.status,
-      appId: args.appId,
-      uuId,
-    };
+    try {
+      this.checkParamsAssigned([this.keys.appId, this.keys.status], payload);
+    } catch (e) {
+      console.error(e);
+    }
+    if (payload.status === this.statuses.paid) {
+      const uuId = this.retrieveLocalUUID();
+      payload.uuId = uuId;
+    }
     return this.client.postEndpoint(endpoint, payload, done);
   }
 
@@ -38,14 +61,19 @@ class Api {
     return this.client.postEndpoint(endpoint, args, done);
   }
 
-  retrieveLocalUUID(status) {
+  retrieveLocalUUID() {
     this.uuId = null;
-    if (status === this.statuses.paid) {
-      // Retrieve UUID if exists
-      if (localStorage.getItem('manoeuvre')) {
-        const manoeuvreStore = JSON.parse(localStorage.getItem('manoeuvre'));
-        this.uuId = manoeuvreStore.uuId ? manoeuvreStore.uuId : 'Not Set';
+    // Retrieve UUID if exists
+    if (localStorage.getItem('manoeuvre')) {
+      const manoeuvreStore = JSON.parse(localStorage.getItem('manoeuvre'));
+      try {
+        this.checkParamsAssigned([this.keys.uuId], manoeuvreStore);
+      } catch (e) {
+        console.error(e);
       }
+      this.uuId = manoeuvreStore.uuId;
+    } else {
+      throw new Error('Missing: Manoeuvre store key');
     }
     return this.uuId;
   }

@@ -22,7 +22,7 @@ Node wrapper that interfaces with Manoeuvre's affiliate tracking system. Develop
 $ npm install manoeuvre
 ```
 
-## Usage with Progressive Web Applications
+## Usage with Progressive Web Apps (PWA's)
 
 ```js
 // Inside the front end source of your progressive web application

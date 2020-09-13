@@ -38,7 +38,14 @@ class tracker {
   }
 
   storeUUID(res) {
-    this.uuIdObj = JSON.stringify(res.uuId);
+    console.log('Storing UUID', res);
+    if (!res) {
+      throw new Error('Missing: Result is not defined from status downloaded result');
+    }
+    if (!res.uuId) {
+      throw new Error('Missing: Result exists from status downloaded result but uuId does not exist');
+    }
+    this.uuIdObj = JSON.stringify(res);
     localStorage.setItem('manoeuvre', this.uuIdObj);
   }
 }
