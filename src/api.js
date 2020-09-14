@@ -23,6 +23,16 @@ class Api {
     });
   }
 
+  checkStatuses(passedArgs) {
+    this.statusPassed = [...this.statuses].map((status) => {
+      const stat = status;
+      return stat;
+    }).includes(passedArgs.status);
+    if (!this.statusPassed) {
+      throw new Error(`Status: ${passedArgs.status} is not a valid status. please refer to the docs and correct your payload. `);
+    }
+  }
+
   add(args = {}, done) {
     const endpoint = 'affiliate_add';
     try {
@@ -44,6 +54,7 @@ class Api {
     const payload = { ...args };
     try {
       this.checkParamsAssigned([this.keys.appId, this.keys.status], payload);
+      this.checkStatuses(payload);
     } catch (e) {
       console.error(e);
     }
