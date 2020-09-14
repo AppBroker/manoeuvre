@@ -51,7 +51,8 @@ class Api {
       const uuId = this.retrieveLocalUUID();
       payload.uuId = uuId;
     }
-    return this.client.postEndpoint(endpoint, payload, done);
+    return this.client.postEndpoint(endpoint, payload,
+      payload.status === this.statuses.paid ? done : null);
   }
 
   stats(args, done) {
