@@ -52,7 +52,7 @@ class Api {
       payload.uuId = uuId;
     }
     return this.client.postEndpoint(endpoint, payload,
-      payload.status === this.statuses.paid ? done : null);
+      payload.status === this.statuses.downloaded ? done : null);
   }
 
   stats(args, done) {
